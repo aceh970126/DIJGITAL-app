@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import CardItem from "@/components/CardItem";
@@ -17,10 +17,20 @@ interface CardItemType {
 
 export default function Carousel({ cards }: { cards: CardItemType[] }) {
   const [index, setIndex] = useState(0);
+  const [width, setWidth] = useState(0);
 
   const nextSlide = () => setIndex((prev) => (prev + 1) % cards.length);
   const prevSlide = () =>
     setIndex((prev) => (prev - 1 + cards.length) % cards.length);
+
+  useEffect(() => {
+    const updateWidth = () => setWidth(window.innerWidth);
+
+    updateWidth(); // set initial width
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   return (
     <>
@@ -42,18 +52,25 @@ export default function Carousel({ cards }: { cards: CardItemType[] }) {
 
       {/* Slider */}
       <div className="w-full relative flex items-center justify-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={cards[index].id}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute"
-          >
-            <CardItem {...cards[index]} />
-          </motion.div>
-        </AnimatePresence>
+        {cards.map((card, i) => {
+          const center = width / 2;
+          const cardWidth = width >= 1200 ? 376 : 239;
+          const gap = width >= 1200 ? width / 2 : cardWidth + width / 8;
+          const areaWidth = width >= 1200 ? 674 : cardWidth;
+          const xAxis =
+            i === index
+              ? (width - areaWidth) / 2
+              : center + gap * (i - index) - cardWidth / 2;
+          return (
+            <CardItem
+              key={card.id}
+              {...card}
+              className={`absolute`}
+              style={{ left: xAxis }}
+              isSelected={i === index}
+            />
+          );
+        })}
       </div>
     </>
   );
