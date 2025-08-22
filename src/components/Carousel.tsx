@@ -51,11 +51,11 @@ export default function Carousel({ cards }: { cards: CardItemType[] }) {
       </div>
 
       {/* Slider */}
-      <div className="w-full relative flex items-center justify-center">
+      <div className="w-full relative flex dg:items-center items-start dg:mt-0 -mt-[700px] justify-center">
         {cards.map((card, i) => {
           const center = width / 2;
           const cardWidth = width >= 1200 ? 376 : 239;
-          const gap = width >= 1200 ? width / 2 : cardWidth + width / 8;
+          const gap = width >= 1200 ? width / 2 : cardWidth + 25;
           const areaWidth = width >= 1200 ? 674 : cardWidth;
           const xAxis =
             i === index
@@ -68,6 +68,7 @@ export default function Carousel({ cards }: { cards: CardItemType[] }) {
               className={`absolute`}
               style={{ left: xAxis }}
               isSelected={i === index}
+              isMobileView={width < 1200}
             />
           );
         })}

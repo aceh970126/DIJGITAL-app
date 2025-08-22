@@ -14,6 +14,7 @@ interface CardItemType {
   className: string | undefined | null;
   style: object | undefined;
   isSelected: boolean | undefined;
+  isMobileView: boolean | undefined;
 }
 
 const CardItem = ({
@@ -27,6 +28,7 @@ const CardItem = ({
   className,
   style,
   isSelected,
+  isMobileView,
 }: CardItemType) => {
   return (
     <div
@@ -36,17 +38,12 @@ const CardItem = ({
       )}
       style={style}
     >
-      {/* <AnimatePresence mode="wait">
-        <motion.div
-          key={id}
-          initial={{ x: 300, scale: 0.8 }}
-          animate={{ x: 0, scale: 1 }}
-          exit={{ x: -300, scale: 0.8 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        > */}
       <div
         className="dg:w-[376px] dg:h-[663px] w-[239px] h-[421px] bg-background rounded-xl shadow-[0_32px_32px_0_rgba(0,0,0,0.48)] transition-all ease-in-out duration-500"
-        style={{ scale: isSelected ? 1 : 0.7 }}
+        style={{
+          scale: isSelected ? 1 : 0.8,
+          marginTop: isSelected || !isMobileView ? 0 : 41.1,
+        }}
       >
         <div
           className="w-full dg:h-[451px] h-[303px] border-[4px] border-b-0 border-dg-semi-brightY rounded-t-xl bg-dg-red bg-blend-soft-light bg-no-repeat bg-cover relative"
@@ -75,8 +72,6 @@ const CardItem = ({
           {name}
         </h1>
       </div>
-      {/* </motion.div>
-      </AnimatePresence> */}
       <div
         className="flex flex-col dg:items-start items-center gap-4 transition-all ease-in duration-500"
         style={{
