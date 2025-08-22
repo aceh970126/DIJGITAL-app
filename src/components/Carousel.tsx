@@ -1,5 +1,3 @@
-// components/Carousel.tsx (client component)
-
 "use client";
 
 import { useState } from "react";
