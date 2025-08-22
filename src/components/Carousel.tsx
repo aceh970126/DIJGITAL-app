@@ -5,7 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import CardItem from "@/components/CardItem";
 
-export default function Carousel({ cards }: { cards: any[] }) {
+interface CardItemType {
+  _id: string | undefined;
+  name: string | undefined;
+  tagline: string | undefined;
+  quote: string | undefined;
+  image: string | undefined;
+  signature: string | undefined;
+  background: string | undefined;
+}
+
+export default function Carousel({ cards }: { cards: CardItemType[] }) {
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => setIndex((prev) => (prev + 1) % cards.length);

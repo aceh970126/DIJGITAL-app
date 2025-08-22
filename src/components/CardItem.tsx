@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-interface CardItemPropsType {
+interface CardItemType {
   name: string | undefined;
   tagline: string | undefined;
   quote: string | undefined;
@@ -17,7 +17,7 @@ const CardItem = ({
   image,
   signature,
   background,
-}: CardItemPropsType) => {
+}: CardItemType) => {
   return (
     <div className="flex flex-row items-center z-10">
       <div className="w-[376px] h-[663px] bg-background rounded-xl shadow-[0_32px_32px_0_rgba(0,0,0,0.48)] mr-10">
