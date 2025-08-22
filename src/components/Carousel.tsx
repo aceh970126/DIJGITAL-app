@@ -6,7 +6,7 @@ import Image from "next/image";
 import CardItem from "@/components/CardItem";
 
 interface CardItemType {
-  _id: string | undefined;
+  id: string | undefined;
   name: string | undefined;
   tagline: string | undefined;
   quote: string | undefined;
@@ -44,11 +44,11 @@ export default function Carousel({ cards }: { cards: CardItemType[] }) {
       <div className="w-full relative flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
-            key={cards[index]._id}
+            key={cards[index].id}
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="absolute"
           >
             <CardItem {...cards[index]} />

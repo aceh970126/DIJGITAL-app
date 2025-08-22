@@ -22,7 +22,7 @@ export default async function IndexPage() {
 
   // Convert image refs into URLs before sending to client
   const safeCards = cards.map((card) => ({
-    _id: card._id,
+    id: card._id,
     name: card.name,
     tagline: card.tagline,
     quote: card.quote,
