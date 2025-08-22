@@ -54,8 +54,7 @@ const CardItem = ({
       <div className="flex flex-col justify-start gap-4">
         <Image src="/Quote.svg" alt="Quote" width={41} height={24} />
         <h3 className="text-[24px] leading-[32px] text-white font-semibold w-[258px]">
-          Greatness respects greatness. That’s why I’m teaming up with this
-          brand, giving you a chance to be great.
+          {quote}
         </h3>
       </div>
     </div>
