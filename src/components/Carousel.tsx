@@ -25,7 +25,7 @@ export default function Carousel({ cards }: { cards: CardItemType[] }) {
   return (
     <>
       {/* Arrows */}
-      <div className="min-w-[1133px] flex justify-between absolute z-20 px-8">
+      <div className="w-full dg:max-w-[1133px] max-w-auto flex justify-between absolute z-20 px-8">
         <button
           onClick={prevSlide}
           className="cursor-pointer hover:opacity-50 transition"

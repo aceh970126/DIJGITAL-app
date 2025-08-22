@@ -19,40 +19,38 @@ const CardItem = ({
   background,
 }: CardItemType) => {
   return (
-    <div className="flex flex-row items-center z-10">
-      <div className="w-[376px] h-[663px] bg-background rounded-xl shadow-[0_32px_32px_0_rgba(0,0,0,0.48)] mr-10">
+    <div className="flex dg:flex-row flex-col gap-10 items-center z-10">
+      <div className="dg:w-[376px] dg:h-[663px] w-[239px] h-[421px] bg-background rounded-xl shadow-[0_32px_32px_0_rgba(0,0,0,0.48)]">
         <div
-          className="w-full h-[451px] border-[4px] border-b-0 border-dg-semi-brightY rounded-t-xl bg-dg-red bg-blend-soft-light bg-no-repeat bg-cover relative"
+          className="w-full dg:h-[451px] h-[303px] border-[4px] border-b-0 border-dg-semi-brightY rounded-t-xl bg-dg-red bg-blend-soft-light bg-no-repeat bg-cover relative"
           style={{ backgroundImage: `url(${background})` }}
         >
-          <Image
+          <img
             src="/Sports.svg"
             alt="Sports"
-            width={56}
-            height={56}
-            className="z-10 absolute right-4 top-4"
+            className="z-10 absolute dg:right-4 right-[10px] dg:top-4 top-[10px] dg:w-[56px] dg:h-[56px] w-[35px] h-[35px]"
           />
           <img
             src={signature}
             alt="signature"
-            className="absolute top-[61px] left-[53px] z-20"
+            className="absolute dg:top-[61px] top-[41px] dg:left-[53px] left-[33px] z-20 dg:h-auto h-[88px]"
           />
           <img
             src={image}
             alt="image"
-            className="absolute -right-1 bottom-0 z-30 w-[318px] h-[424px]"
+            className="absolute -right-1 bottom-0 z-30 dg:w-[318px] dg:h-[424px] w-[202px] h-[285px["
           />
         </div>
-        <div className="w-full h-[52px] bg-gradient-to-r from-dg-semi-brightY via-dg-brightY to-dg-semi-brightY px-2 py-4 text-black font-semibold text-center text-[14px] leading-[20px]">
+        <div className="w-full dg:h-[52px] h-[30px] bg-gradient-to-r from-dg-semi-brightY via-dg-brightY to-dg-semi-brightY text-black font-semibold text-center dg:text-[14px] text-[10px] dg:leading-[20px] leading-[14px] flex items-center justify-center">
           {tagline}
         </div>
-        <h1 className="w-full h-[160px] bg-none flex justify-center items-center text-center text-[30px] leading-[40px] font-semibold px-8 py-10 uppercase">
+        <h1 className="w-full dg:h-[160px] h-[88px] bg-none flex justify-center items-center text-center dg:text-[30px] text-[14px] dg:leading-[40px] leading-[20px] font-semibold dg:px-8 py-10 px-4 uppercase">
           {name}
         </h1>
       </div>
-      <div className="flex flex-col justify-start gap-4">
+      <div className="flex flex-col dg:items-start items-center gap-4">
         <Image src="/Quote.svg" alt="Quote" width={41} height={24} />
-        <h3 className="text-[24px] leading-[32px] text-white font-semibold w-[258px]">
+        <h3 className="dg:text-[24px] text-[18px] dg:leading-[32px] leading-[26px] text-white font-semibold dg:w-[258px] w-[239px] dg:text-start text-center">
           {quote}
         </h3>
       </div>

@@ -19,6 +19,8 @@
   --color-dg-red-lighten: var(--dg-red-lighten);
   --color-dg-semi-brightY: var(--dg-semi-brightY);
   --color-dg-brightY: var(--dg-brightY);
+
+  --breakpoint-dg: 1200px;
 }
 
 @media (prefers-color-scheme: dark) {
