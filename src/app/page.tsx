@@ -34,7 +34,7 @@ export default async function IndexPage() {
   return (
     <main className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background skew */}
-      <div className="dg:min-w-[900px] min-w-[2000px] h-[542px] bg-dg-red absolute z-0 -skew-x-12 dg:top-auto top-[412px]"></div>
+      <div className="dg:min-w-[900px] min-w-[2000px] h-[542px] bg-dg-red absolute z-0 -skew-x-12 dg:top-auto top-[412px]"/>
       <Carousel cards={safeCards} />
     </main>
   );

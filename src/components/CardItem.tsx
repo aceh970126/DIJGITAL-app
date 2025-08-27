@@ -1,20 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import classNames from "classnames";
 
 interface CardItemType {
-  id: string | undefined;
-  name: string | undefined;
-  tagline: string | undefined;
-  quote: string | undefined;
-  image: string | undefined;
-  signature: string | undefined;
-  background: string | undefined;
-  className: string | undefined | null;
-  style: object | undefined;
-  isSelected: boolean | undefined;
-  isMobileView: boolean | undefined;
+  id?: string;
+  name?: string;
+  tagline?: string;
+  quote?: string;
+  image?: string;
+  signature?: string;
+  background?: string;
+  className?: string | null;
+  style?: React.CSSProperties;
+  isSelected?: boolean;
+  isMobileView?: boolean;
 }
 
 const CardItem = ({
@@ -62,7 +61,7 @@ const CardItem = ({
           <img
             src={image}
             alt="image"
-            className="absolute -right-1 bottom-0 z-30 dg:w-[318px] dg:h-[424px] w-[202px] h-[285px["
+            className="absolute -right-1 bottom-0 z-30 dg:w-[318px] dg:h-[424px] w-[202px] h-[285px]"
           />
         </div>
         <div className="w-full dg:h-[52px] h-[30px] bg-gradient-to-r from-dg-semi-brightY via-dg-brightY to-dg-semi-brightY text-black font-semibold text-center dg:text-[14px] text-[10px] dg:leading-[20px] leading-[14px] flex items-center justify-center">
